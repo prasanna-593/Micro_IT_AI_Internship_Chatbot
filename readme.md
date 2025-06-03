@@ -84,11 +84,11 @@ Try questions like:
 🔮 Future Improvements
 
 
-  Add backend for storing chat history
+ 1. Add backend for storing chat history
 
-  Improve intent training with user feedback
+  2.Improve intent training with user feedback
 
-  Add more domains & real-time job/internship listings
+  3.Add more domains & real-time job/internship listings
 
-  Deploy on Firebase or GitHub Pages
+  4.Deploy on Firebase or GitHub Pages
 
