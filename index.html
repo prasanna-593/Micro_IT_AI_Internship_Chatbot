@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatbot</title>
+    <meta charset="UTF-8" />
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <style>
+      body {
+        margin: 0;
+        background-color: #ffffff;
+        font-family: Arial, sans-serif;
+        color: #333;
+        text-align: center;
+        padding-top: 30px;
+      }
+
+      h1 {
+        color: #000;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+
+      df-messenger {
+        --df-messenger-button-titlebar-color: #000000;
+        --df-messenger-chat-background-color: #f0f0f0;
+        --df-messenger-message-user-color: #d3d3d3; /* Light grey */
+        --df-messenger-message-bot-color: #c0c0c0; /* Slightly darker grey */
+        --df-messenger-font-color: #222;
+        z-index: 999;
+      }
+
+      #welcomeBox {
+        margin: 20px auto;
+        width: 60%;
+        font-size: 18px;
+        color: #555;
+      }
+
+      .features {
+        margin: 40px auto;
+        max-width: 900px;
+        text-align: left;
+        padding: 20px;
+      }
+
+      .features h2 {
+        color: #000;
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-item img {
+        width: 120px;
+        height: auto;
+        margin-right: 20px;
+        border-radius: 8px;
+      }
+
+      .feature-item p {
+        font-size: 16px;
+        color: #444;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Internship Chatbot</h1>
+    <div id="welcomeBox"></div>
+
+    <div class="features">
+      <h2>Features & Uses</h2>
+
+      <div class="feature-item">
+        <img src="https://via.placeholder.com/120?text=Guidance" alt="Guidance">
+        <p>Helps you choose the best internship domain based on your interests and skills.</p>
+      </div>
+
+      <div class="feature-item">
+        <img src="https://via.placeholder.com/120?text=Support" alt="Support">
+        <p>Available 24/7 to answer common queries related to internships and career advice.</p>
+      </div>
+
+      <div class="feature-item">
+        <img src="https://via.placeholder.com/120?text=Easy+Use" alt="Easy Use">
+        <p>Simple and interactive interface for personalized user experience.</p>
+      </div>
+    </div>
+
+    <df-messenger
+      intent="WELCOME"
+      chat-title="Internship Chatbot"
+      agent-id="f170db50-c3cd-43b8-b28b-a9facd48bf36"
+      language-code="en"
+    ></df-messenger>
+
+    <script>
+      let userName = localStorage.getItem('chatbot_user');
+      if (!userName) {
+        userName = prompt("Hi! What's your name?");
+        if (userName) {
+          localStorage.setItem('chatbot_user', userName);
+        }
+      }
+
+      if (userName) {
+        document.getElementById('welcomeBox').innerText = `Hello ${userName}, how can I help you?`;
+      }
+    </script>
+  </body>
+</html>
